@@ -1,0 +1,33 @@
+[github]
+	user = rubyconsumer
+	token = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[user]
+	name = Winston Tsang
+	email = rubyconsumer [at] rubyconsumer [dot] com
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[merge]
+	tool = opendiff
+[core]
+	legacyheaders = false
+[repack]
+	usedeltabaseoffset = true
+[instaweb]
+  local = true
+  httpd = webrick
+  port = 9999

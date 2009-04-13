@@ -1,0 +1,116 @@
+###############
+# CUSTOM CODE #
+###############
+echo Profile - Mac
+
+set -o vi
+
+# SET UP THE MAC ALIAS VARIABLES:
+        alias i="/Users/wtsang/Rails/instiki-0.11.0/instiki.rb &"
+        alias set_proxy="export http_proxy=http:/localhost:8999"
+
+        #export FIGHTCLUBDISPLAY=170.71.229.205:0.0
+        #export DISPLAY=$FIGHTCLUBDISPLAY
+
+        export CVS_RSH=ssh
+        export CVSROOT=:ext:jstor@cvs.jstor.org:/var/local/home/cvs/cvsroot
+
+        export PATH=$PATH:~/src/bin
+        export CLASSPATH=$CLASSPATH:/Users/wtsang/aspectj1.5/lib/aspectjrt.jar:/Applications/java/lib/iText-2.1.3.jar
+
+
+
+# SET UP THE ALIAS VARIABLES:
+        alias ls="ls -G"
+
+        alias todo="/Users/wtsang/Documents/notes/bin/todo.sh"
+        alias ri="ri -Tf ansi"
+        alias rihtml="ri -Tf html"
+
+        alias svnprofile="svn co svn+ssh://winstont@login.itd.umich.edu/afs/umich.edu/user/w/i/winstont/svn/profile"
+
+	alias ssh-tunnel="ssh -T -o serveraliveinterval=90 -o serveralivecountmax=3 -l winstont -D 1080 -g -C -x login.itd.umich.edu"
+
+	alias syn-work="/Applications/synergy-1.3.1/synergyc -f orion.local"
+
+
+
+
+# LIFEHACKER TODO LIST
+# source ~/.bash_completion.d/todo_completer.sh
+# complete -F _todo_sh -o default todo
+
+
+
+# ARE WE AN INTERACTIVE SHELL?
+if [ "$PS1" ]; then
+    case $TERM in
+        xterm*)
+        PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME%%.*} \007"'
+        ;;
+    esac
+fi
+
+
+
+# replacement netstat cmd to find ports used by apps on OS X
+alias netstat_osx="sudo lsof -i -P"
+
+
+
+# Your previous .profile  (if any) is saved as .profile.dpsaved
+# Setting the path for DarwinPorts.
+export PATH=.:/opt/local/bin:/opt/local/sbin:$PATH
+
+
+
+# TextMate
+alias et='mate . &'
+alias ett='mate app config lib db public test vendor/plugins &'
+
+
+
+# SVN Configuration
+export SVN_EDITOR="mate -w"
+
+
+# GIT Configuration
+export GIT_EDITOR="mate -w"
+
+
+# BASHIFY GEM DOCS
+export GEMDIR=`gem env gemdir`
+
+gemdoc() {
+  open $GEMDIR/doc/`$(which ls) $GEMDIR/doc | grep $1 | sort | tail -1`/rdoc/index.html
+}
+
+_gemdocomplete() {
+  COMPREPLY=($(compgen -W '$(`which ls` $GEMDIR/doc)' -- ${COMP_WORDS[COMP_CWORD]}))
+  return 0
+}
+
+complete -o default -o nospace -F _gemdocomplete gemdoc
+
+
+
+# JRUBY SET UP
+export PATH=$PATH:/Applications/jruby/bin/
+export JRUBY_HOME=/Applications/jruby/
+
+# MYSQL SET UP
+export PATH="$PATH:/usr/local/mysql/bin"
+
+
+# Add Synergy Config
+# /Applications/synergy-1.3.1/synergys -f -c synergy.conf
+
+# Add cdargs    (from: http://www.entropy.ch/blog/Mac+OS+X/2008/06/03/UNIX-Tool-Tip-cdargs.html)
+if [ -f /opt/local/etc/profile.d/cdargs-bash.sh ]; then
+    source /opt/local/etc/profile.d/cdargs-bash.sh
+fi
+
+# Ports git bash_completion
+if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
+fi
