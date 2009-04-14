@@ -1,0 +1,15 @@
+# .screenrc 
+# 
+# First time user?
+#   Alias screen to "screen -R -DD" for most cases.
+
+bell 'Bell in screen %~'
+defobuflimit 2560
+#defobuflimit 25600
+defscrollback 25600
+#defscrollback 256000
+startup_message off
+#term ansi
+vbell off
+#autodetach off
+autodetach on
