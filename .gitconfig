@@ -4,6 +4,15 @@
 [user]
 	name = Winston Tsang
 	email = rubyconsumer [at] rubyconsumer [dot] com
+[alias]
+   st = status
+   ci = commit
+   br = branch
+   co = checkout
+   df = diff
+   lg = log -p
+[apply]
+   whitespace = nowarn
 [color]
 	branch = auto
 	diff = auto
