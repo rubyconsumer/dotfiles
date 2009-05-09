@@ -1,16 +1,19 @@
 [github]
 	user = rubyconsumer
-	token = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	token = xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 [user]
 	name = Winston Tsang
 	email = rubyconsumer [at] rubyconsumer [dot] com
 [alias]
    st = status
+   sta = stash
    ci = commit
    br = branch
    co = checkout
    df = diff
    lg = log -p
+   rt = remote
+   wc = whatchanged
 [apply]
    whitespace = nowarn
 [color]
