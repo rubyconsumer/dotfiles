@@ -1,45 +1,48 @@
 [github]
-	user = rubyconsumer
-	token = xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  user = rubyconsumer
+  token = xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 [user]
-	name = Winston Tsang
-	email = rubyconsumer [at] rubyconsumer [dot] com
+  name = Winston Tsang
+  email = rubyconsumer [at] rubyconsumer [dot] com
 [alias]
-   st = status
-   sta = stash
-   ci = commit
-   br = branch
-   co = checkout
-   df = diff
-   lg = log -p
-   rt = remote
-   wc = whatchanged
+  st = status
+  sta = stash
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+  rt = remote
+  wc = whatchanged
 [apply]
    whitespace = nowarn
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+  branch = auto
+  diff = auto
+  status = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 [merge]
-	tool = opendiff
+  tool = opendiff
 [core]
-	legacyheaders = false
+  legacyheaders = false
 [repack]
-	usedeltabaseoffset = true
+  usedeltabaseoffset = true
 [instaweb]
   local = true
   httpd = webrick
   port = 9999
+[pager]
+  color = true
+
