@@ -3,3 +3,12 @@ dotfiles
 .profile
 .bashrc
 etc
+
+
+SET UP
+======
+* Get a free Dropbox account.  Use referal link http://db.tt/hocHo5n for an 250MB of bonus space.
+* Place dotfiles project into Dropbox/<user>/dotfiles
+* Link dotfiles in home directory to the dotfiles project.  cd ~; ln -s ~/Dropbox/<user>/dotfiles/.gitconfig
+
+Any changes to files are not backed up on Drobox and available for a git diff and git commit.
