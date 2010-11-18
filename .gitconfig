@@ -12,6 +12,7 @@
   co = checkout
   df = diff
   lg = log -p
+  lo1 = log --oneline --decorate --graph
   rt = remote
   wc = whatchanged
 [apply]
