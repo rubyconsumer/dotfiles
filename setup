@@ -1,0 +1,18 @@
+cd
+
+echo $HOME
+
+ln -s $HOME/Dropbox/wtsang/dotfiles/.ackrc
+ln -s $HOME/Dropbox/wtsang/dotfiles/.autotest
+ln -s $HOME/Dropbox/wtsang/dotfiles/.editrc
+ln -s $HOME/Dropbox/wtsang/dotfiles/.gemrc
+ln -s $HOME/Dropbox/wtsang/dotfiles/.gitconfig
+ln -s $HOME/Dropbox/wtsang/dotfiles/.gitk
+ln -s $HOME/Dropbox/wtsang/dotfiles/.hoerc
+ln -s $HOME/Dropbox/wtsang/dotfiles/.profile
+ln -s $HOME/Dropbox/wtsang/dotfiles/.rvmrc
+ln -s $HOME/Dropbox/wtsang/dotfiles/.screenrc
+ln -s $HOME/Dropbox/wtsang/dotfiles/.sh_logout
+ln -s $HOME/Dropbox/wtsang/dotfiles/.bash
+
+
