@@ -13,6 +13,7 @@
   df = diff
   lg = log -p
   lo1 = log --oneline --decorate --graph
+  lon = log --show-notes=*
   rt = remote
   wc = whatchanged
 [apply]
@@ -47,3 +48,5 @@
 [pager]
   color = true
 
+[push]
+	default = current
