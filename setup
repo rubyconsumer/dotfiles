@@ -18,3 +18,5 @@ ln -s $HOME/Dropbox/wtsang/dotfiles/.bash
 ln -s $HOME/Dropbox/wtsang/dotfiles/.vimrc.local
 ln -s $HOME/Dropbox/wtsang/dotfiles/.gvimrc.local
 
+ln -s $HOME/Dropbox/wtsang/dotfiles/.tmux.conf
+
