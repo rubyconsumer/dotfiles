@@ -19,14 +19,11 @@ echo Profile Common
 
 # Set up the shell variables:
         export EDITOR=vi
-        
+
         export CDPATH=.:$HOME
-        
+
         umask 0002
-        
-        # PS1=`hostname`:'$PWD> '
-        # PS1='\e[32m\u@\h\e[0m:\e[34m\w\e[0m\$ '
-        # PS1='\[\033[01;35m\]\u@\h:\ \[\033[01;33m\]\w\n] \[\033[00m\]\[\e]0;\H:\w\a\]'
+
 
 
 
@@ -51,7 +48,7 @@ echo Profile Common
         alias hunt-to-kill="ps uawwwx | grep tomcat | grep -v grep | tr -s ' ' | cut -f2 -d' ' | xargs kill -9"
 
         alias cman="nroff -man"
-        
+
         # XWin Alias
         alias zlock="clear;lock;dlsa"
         alias myclock="xclock -fg blue -hd red -hl yellow -rv -update 1 &"
@@ -61,7 +58,7 @@ echo Profile Common
 # SET UP THE EXPORT VARIABLES:
         export TERM=xterm
         export PAGER=/usr/bin/less
-#        export HOME=/export/home/jstor/wtsang
+#        export HOME=/export/home/wtsang
         export HISTCONTROL=ignoredups
         export HISTFILE=$HOME/.history
 
@@ -75,7 +72,7 @@ echo Profile Common
 
 
 
-# CHANGE THE WINDOW TITLE OF X TERMINALS 
+# CHANGE THE WINDOW TITLE OF X TERMINALS
 case $TERM in
     xterm*|rxvt*|Eterm)
         PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
@@ -87,23 +84,29 @@ esac
 
 
 
+# GIT COMPLETION
+source ~/Dropbox/wtsang/dotfiles/.bash/completion/git-completion.bash
+
+
+
 # Add Git Branch Name into Shell Prompt
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-PS1="\[\033[01;35m\]\u@\h:\[\033[01;33m\]\w\[\033[00m\]\n\$(parse_git_branch)\[\033[01;33m\]]\[\033[00m\] \[\033[00m\]\[\e]0;\H:\w\a\]"
-
+#PS1="\[\033[01;35m\]\u@\h:\[\033[01;33m\]\w\[\033[00m\]\n\$(parse_git_branch)\[\033[01;33m\]]\[\033[00m\] \[\033[00m\]\[\e]0;\H:\w\a\]"
+# Test differences between parse_git_branch and git_ps1
+PS1="\[\033[01;35m\]\u@\h:\[\033[01;33m\]\w\[\033[00m\]\n\$(parse_git_branch)\$(__git_ps1 )\[\033[01;33m\]]\[\033[00m\] \[\033[00m\]\[\e]0;\H:\w\a\]"
 
 
 # SET THE PROMPT TO NORMAL IF WE'RE ON THE LOCALHOST, PUT 'REMOTE' IN RED IF WE'RE SSH'D TO SOMEWHERE ELSE.
 if [ ! -z "$SSH_CONNECTION" ]; then
     case ${TERM} in
     xterm-color)
-        PS1='\[\033[01;31m\]*remote*\[\033[00m\] \[\033[01;36m\]\u@\h: \[\033[01;36m\] \$(parse_git_branch) \w \[\033[00m\] $ '
+        PS1='\[\033[01;31m\]*remote*\[\033[00m\] \[\033[01;36m\]\u@\h: \[\033[01;36m\] \$(parse_git_branch) \$(__git_ps1 " (%s)") \w \[\033[00m\] $ '
         ;;
     xterm*|rxvt*|Eterm)
-        PS1='\[\033[01;31m\]*remote*\[\033[00m\] \[\033[01;33m\]\u@\h: \[\033[01;36m\] \w $\[\033[00m\] \$(parse_git_branch) '
+        PS1='\[\033[01;31m\]*remote*\[\033[00m\] \[\033[01;33m\]\u@\h: \[\033[01;36m\] \w $\[\033[00m\] \$(parse_git_branch) \$(__git_ps1 " (%s)")'
         ;;
     *)
         PS1="*remote* ${PS1}"
