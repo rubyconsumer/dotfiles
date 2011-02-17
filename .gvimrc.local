@@ -1,4 +1,13 @@
+" Change color scheme to vibrantink
 color vibrantink
+
+" Custom Colors for Mini Buffer Explorer
+hi MBEVisibleActive guifg=#A6DB29 guibg=black
+hi MBEVisibleChangedActive guifg=#F1266F guibg=black
+hi MBEVisibleChanged guifg=#F1266F guibg=black
+hi MBEVisibleNormal guifg=#5DC2D6 guibg=black
+hi MBEChanged guifg=#CD5907 guibg=black
+hi MBENormal guifg=#808080 guibg=black
 
 " git blame selected lines
 vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
