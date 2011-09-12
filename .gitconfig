@@ -16,6 +16,18 @@
   lon = log --show-notes=*
   rt = remote
   wc = whatchanged
+  nrspec = notes --ref=rspec add
+  ncukes = notes --ref=cucumber add
+  pushnr = push origin refs/notes/rspec
+  pushnc = push origin refs/notes/cucumber
+  ncore = push core +refs/notes/*:refs/notes/*
+  norigin = push origin +refs/notes/*:refs/notes/*
+  track = branch --set-upstream
+
+[remote "origin"]
+  fetch = +refs/notes/*:refs/notes/*
+  push = +refs/notes/*:refs/notes/*
+
 [apply]
    whitespace = nowarn
 [color]
@@ -49,4 +61,4 @@
   color = true
 
 [push]
-	default = current
+  default = current
