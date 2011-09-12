@@ -105,6 +105,7 @@ export JRUBY_HOME=/Applications/jruby/current
 
 # MYSQL SET UP
 export PATH="$PATH:/usr/local/mysql/bin"
+export MYSQL_PS1="\\d@\\h> "
 
 
 # Local User Gem Set Up

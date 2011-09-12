@@ -14,6 +14,7 @@ ln -s $HOME/Dropbox/wtsang/dotfiles/.rvmrc
 ln -s $HOME/Dropbox/wtsang/dotfiles/.screenrc
 ln -s $HOME/Dropbox/wtsang/dotfiles/.sh_logout
 ln -s $HOME/Dropbox/wtsang/dotfiles/.bash
+ln -s $HOME/Dropbox/wtsang/dotfiles/.inputrc
 
 ln -s $HOME/Dropbox/wtsang/dotfiles/.vimrc.local
 ln -s $HOME/Dropbox/wtsang/dotfiles/.gvimrc.local
