@@ -1,6 +1,9 @@
 " Change color scheme to vibrantink
 color vibrantink
 
+" Change font
+set gfn=Monaco:h12
+
 " Custom Colors for Mini Buffer Explorer
 hi MBEVisibleActive guifg=#A6DB29 guibg=black
 hi MBEVisibleChangedActive guifg=#F1266F guibg=black
