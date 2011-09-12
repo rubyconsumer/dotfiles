@@ -1,7 +1,27 @@
+require 'autotest/fsevent'
 require 'autotest/growl'
-require 'autotest/redgreen'
+# require 'autotest/menu'
+# require 'autotest/pretty'
+require "autotest/restart"
 require 'autotest/timestamp'
+# require 'autotest/redgreen'
+# require 'autotest/timestamp'
 
 Autotest.add_hook :initialize do |at|
-  at.add_exception(/.git.*/)
+#   at.clear_mappings
+
+#   at.add_exception(/.git.*/)
+  %w{.git .svn .hg .swp .DS_Store ._* tmp}.each do |exception|
+      at.add_exception(exception)
+  end
+
+  at.add_mapping %r%^spec/(acceptance|support|concerns|controllers|helpers|lib|mailers|models|observers|presenters|requests|routing|services|views)/.*rb$% do |filename, _|
+    filename
+  end
+end
+
+Autotest.add_hook :waiting do
+  puts "#####################################"
+  puts "# Waiting since #{Time.now.strftime "%Y-%m-%d %H:%M:%S"} #"
+  puts "#####################################"
 end
