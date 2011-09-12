@@ -27,6 +27,7 @@ set -o vi
         alias todo="/Users/wtsang/Documents/notes/bin/todo.sh"
         alias ri="ri -Tf ansi"
         alias rihtml="ri -Tf html"
+        alias genrdoc="gem rdoc --all --overwrite --no-ri"
 
         alias svnprofile="svn co svn+ssh://winstont@login.itd.umich.edu/afs/umich.edu/user/w/i/winstont/svn/profile"
 
@@ -136,3 +137,6 @@ fi
 
 # Fix for tar and system resources
 export COPYFILE_DISABLE=true
+
+# Add local bin path
+export PATH=/usr/local/bin:$PATH
