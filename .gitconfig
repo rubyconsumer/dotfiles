@@ -11,12 +11,15 @@
   br = branch
   co = checkout
   df = diff
-  lg = log -p
-  lo1 = log --oneline --decorate --graph
+  # lg = log -p
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lo1 = log --graph --oneline --decorate
   lon = log --show-notes=*
+  lan = log --graph --decorate
   rt = remote
   wc = whatchanged
   nrspec = notes --ref=rspec add
+  nrspec-js = notes --ref=rspec_js add
   ncukes = notes --ref=cucumber add
   pushnr = push origin refs/notes/rspec
   pushnc = push origin refs/notes/cucumber
@@ -27,6 +30,9 @@
 [remote "origin"]
   fetch = +refs/notes/*:refs/notes/*
   push = +refs/notes/*:refs/notes/*
+
+[push]
+	default = tracking
 
 [apply]
    whitespace = nowarn
@@ -59,6 +65,3 @@
   port = 9999
 [pager]
   color = true
-
-[push]
-  default = current
