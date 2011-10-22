@@ -5,7 +5,7 @@
 ###############
 # CUSTOM CODE #
 ###############
-echo Profile Common
+# echo Profile Common
 
 # HACK A KSH.LOGOUT FILE
         trap '. $HOME/.sh_logout; exit' 0
@@ -93,7 +93,8 @@ source ~/Dropbox/wtsang/dotfiles/.bash/completion/git-completion.bash
 
 function minutes_since_last_commit {
   now=`date +%s`
-  last_commit=`git log --pretty=format:'%at' -1`
+  # last_commit=`git log --pretty=format:'%at' -1`
+  last_commit=`git log --pretty=format:'%ct' -1`
   seconds_since_last_commit=$((now-last_commit))
   minutes_since_last_commit=$((seconds_since_last_commit/60))
   echo $minutes_since_last_commit
