@@ -1,7 +1,7 @@
 ###############
 # CUSTOM CODE #
 ###############
-echo Profile - Mac
+# echo Profile - Mac
 
 set -o vi
 
@@ -45,13 +45,13 @@ set -o vi
 
 
 # ARE WE AN INTERACTIVE SHELL?
-if [ "$PS1" ]; then
-    case $TERM in
-        xterm*)
-        PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME%%.*} \007"'
-        ;;
-    esac
-fi
+# if [ "$PS1" ]; then
+#    case $TERM in
+#        xterm*)
+#        PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME%%.*} \007"'
+#        ;;
+#    esac
+# fi
 
 
 
