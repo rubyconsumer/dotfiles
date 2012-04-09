@@ -22,3 +22,9 @@ nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:
 vnoremap < <gv
 vnoremap > >gv
 
+" Unify Mac cut-and-paste with vim
+if version >= 730 && has("macunix")
+  " Default yank and paste go to Mac's clipboard
+  set clipboard=unnamed
+end
+
