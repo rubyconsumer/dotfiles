@@ -9,6 +9,8 @@ set -o vi
         alias i="/Users/wtsang/Rails/instiki-0.11.0/instiki.rb &"
         alias set_proxy="export http_proxy=http:/localhost:8999"
 
+        alias ttbe="time RAILS_ENV=test bundle exec"
+
         #export FIGHTCLUBDISPLAY=170.71.229.205:0.0
         #export DISPLAY=$FIGHTCLUBDISPLAY
 
