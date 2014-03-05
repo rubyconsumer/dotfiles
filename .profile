@@ -2,8 +2,11 @@
         test -e $HOME/.bash/profile.common && . $HOME/.bash/profile.common > /dev/null
         test -e $HOME/.bash/profile.mac && . $HOME/.bash/profile.mac > /dev/null
 
-source ~/.bash/completion/bash.sh
-source ~/.bash/completion/git.sh
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
+#source ~/.bash/completion/bash.sh
+#source ~/.bash/completion/git.sh
 
 #
 # Your previous .profile  (if any) is saved as .profile.mpsaved
