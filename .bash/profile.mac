@@ -143,3 +143,5 @@ export COPYFILE_DISABLE=true
 
 # Add local bin path
 export PATH=/usr/local/bin:$PATH
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+
