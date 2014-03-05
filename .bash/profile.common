@@ -51,6 +51,8 @@
 
         alias tbe="time bundle exec"
 
+# Allow Control-S - Control-R in reverse
+        stty -ixon
 
 # SET UP THE EXPORT VARIABLES:
         export TERM=xterm
