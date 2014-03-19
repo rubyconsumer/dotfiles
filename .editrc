@@ -1,2 +1,3 @@
 bind -v
 bind \\t rl_complete
+set editing-mode vi
