@@ -136,6 +136,40 @@ function prompt_command {
 
 PROMPT_COMMAND=prompt_command
 
+
+
+# GIT COMPLETION
+source ~/Dropbox/wtsang/dotfiles/.bash/completion/git-completion.bash
+
+function minutes_since_last_commit {
+  now=`date +%s`
+  # last_commit=`git log --pretty=format:'%at' -1`
+  last_commit=`git log --pretty=format:'%ct' -1`
+  seconds_since_last_commit=$((now-last_commit))
+  minutes_since_last_commit=$((seconds_since_last_commit/60))
+  echo $minutes_since_last_commit
+}
+
+function git_timer_prompt() {
+  local g="$(__gitdir)"
+  if [ -n "$g" ]; then
+    local MINUTES_SINCE_LAST_COMMIT=`minutes_since_last_commit`
+    if [ "$MINUTES_SINCE_LAST_COMMIT" -gt 40 ]; then
+      local COLOR=${RED}
+    elif [ "$MINUTES_SINCE_LAST_COMMIT" -gt 15 ]; then
+      local COLOR=${YELLOW}
+    else
+      local COLOR=${GREEN}
+    fi
+    local SINCE_LAST_COMMIT="${COLOR} ($(minutes_since_last_commit)m)${NORMAL}"
+    echo ${SINCE_LAST_COMMIT}
+    #local GIT_TIMER=$(__git_ps1 "(%s|${SINCE_LAST_COMMIT})")
+    #echo ${GIT_TIMER}
+  fi
+}
+
+
+
 export -f get_git_branch
 export -f parse_git_branch
 export -f parse_git_dirty
