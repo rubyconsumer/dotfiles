@@ -16,7 +16,6 @@
         set -o vi
 
 
-
 # Set up the shell variables:
         export EDITOR=vi
         export CDPATH=.:$HOME
@@ -24,20 +23,6 @@
 
 
 # SET UP THE ALIAS VARIABLES:
-        # alias ls='ls --color=tty -p'
-        alias ls='ls -p'
-        alias l='ls -l'
-
-        alias lsa="ls -aFq"
-        alias cls="clear;ls"
-        alias clsa="clear;lsa"
-
-        alias ll="ls -l"
-        alias lla="ls -alFq"
-        alias cll="clear;ll"
-        alias clla="clear;ls -alFq"
-
-        alias dlsa="clear;date;echo;lsa"
         alias s='echo;echo;echo;'
 
         alias hunt='ps uawwwx | grep tomcat | grep -v grep'
@@ -62,20 +47,12 @@
         export CVS_RSH=ssh
         export CVSROOT=:ext:jstor@cvs.jstor.org:/var/local/home/cvs/cvsroot
 
-        # CUSTOMIZE COLORIZATION FOR LS
-        export LS_COLORS='di=01;33'
-        #export LSCOLORS=exfxcxdxbxegedabagacad  #DEFAULT
-        export LSCOLORS=cxfxcxdxbxegedabagacad  #CUSTOM
-
 # SET UP COLOR VARIABLES:
         YELLOW='\[\033[1;33m\]'
         BLUE='\[\033[1;34m\]'
         GREEN='\[\033[1;32m\]'
         RED='\[\033[0;31m\]'
         NORMAL='\[\033[00m\]'
-
-
-
 
 # CHANGE THE WINDOW TITLE OF X TERMINALS
 case $TERM in
@@ -101,4 +78,12 @@ function restart-nagios() {
 
 # JRUBY
 export PATH=$PATH:/jstor/applications/jruby/current/bin
+
+
+
+test -e $HOME/.bash/ls.sh && . $HOME/.bash/ls.sh > /dev/null
+test -e $HOME/.bash/ps1.sh && . $HOME/.bash/ps1.sh > /dev/null
+test -e $HOME/.bash/bundle.sh && . $HOME/.bash/bundle.sh > /dev/null
+
+
 
