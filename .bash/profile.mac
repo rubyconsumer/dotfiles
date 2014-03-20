@@ -9,8 +9,6 @@ set -o vi
         alias i="/Users/wtsang/Rails/instiki-0.11.0/instiki.rb &"
         alias set_proxy="export http_proxy=http:/localhost:8999"
 
-        alias ttbe="time RAILS_ENV=test bundle exec"
-
         #export FIGHTCLUBDISPLAY=170.71.229.205:0.0
         #export DISPLAY=$FIGHTCLUBDISPLAY
 
@@ -36,7 +34,6 @@ set -o vi
         alias ssh-tunnel="ssh -T -o serveraliveinterval=90 -o serveralivecountmax=3 -l winstont -D 1080 -g -C -x login.itd.umich.edu"
 
         alias syn-work="/Applications/synergy-1.3.1/synergyc -f orion.local"
-        alias bx='bundle exec'
 
 
 
@@ -145,4 +142,9 @@ export COPYFILE_DISABLE=true
 export PATH=/usr/local/bin:$PATH
 export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 
+
 test -e $HOME/.bash/ps1.sh && . $HOME/.bash/ps1.sh > /dev/null
+test -e $HOME/.bash/bundle.sh && . $HOME/.bash/bundle.sh > /dev/null
+
+
+

@@ -49,8 +49,6 @@
         alias zlock="clear;lock;dlsa"
         alias myclock="xclock -fg blue -hd red -hl yellow -rv -update 1 &"
 
-        alias tbe="time bundle exec"
-
 # Allow Control-S - Control-R in reverse
         stty -ixon
 
