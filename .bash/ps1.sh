@@ -169,6 +169,31 @@ function git_timer_prompt() {
 }
 
 
+##PS1="\[\033[01;35m\]\u@\h:\[\033[01;33m\]\w\[\033[00m\]\n\$(parse_git_branch)\[\033[01;33m\]]\[\033[00m\] \[\033[00m\]\[\e]0;\H:\w\a\]"
+# Test differences between parse_git_branch and git_ps1
+#function set_prompt()
+#{
+#  export PS1="\[\033[01;35m\]\u@\h:\[\033[01;33m\]\w\[\033[00m\]\n\$(parse_git_branch)\$(__git_ps1 )$(git_timer_prompt)\[\033[01;33m\]]\[\033[00m\] \[\033[00m\]\[\e]0;\H:\w\a\]"
+#}
+#
+#
+## SET THE PROMPT TO NORMAL IF WE'RE ON THE LOCALHOST, PUT 'REMOTE' IN RED IF WE'RE SSH'D TO SOMEWHERE ELSE.
+#if [ ! -z "$SSH_CONNECTION" ]; then
+#    case ${TERM} in
+#    xterm-color)
+#        PS1='\[\033[01;31m\]*remote*\[\033[00m\] \[\033[01;36m\]\u@\h: \[\033[01;36m\] \$(parse_git_branch) \$(__git_ps1 " (%s)") \w \[\033[00m\] $ '
+#        ;;
+#    xterm*|rxvt*|Eterm)
+#        PS1='\[\033[01;31m\]*remote*\[\033[00m\] \[\033[01;33m\]\u@\h: \[\033[01;36m\] \w $\[\033[00m\] \$(parse_git_branch) \$(__git_ps1 " (%s)")'
+#        ;;
+#    *)
+#        PS1="*remote* ${PS1}"
+#        ;;
+#    esac
+#fi
+#export PS1
+#PROMPT_COMMAND=set_prompt
+
 
 export -f get_git_branch
 export -f parse_git_branch
