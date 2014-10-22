@@ -7,6 +7,7 @@ ln -s $HOME/Dropbox/wtsang/dotfiles/.autotest
 ln -s $HOME/Dropbox/wtsang/dotfiles/.editrc
 ln -s $HOME/Dropbox/wtsang/dotfiles/.gemrc
 ln -s $HOME/Dropbox/wtsang/dotfiles/.gitconfig
+ln -s $HOME/Dropbox/wtsang/dotfiles/.gitignore_global
 ln -s $HOME/Dropbox/wtsang/dotfiles/.gitk
 ln -s $HOME/Dropbox/wtsang/dotfiles/.hoerc
 ln -s $HOME/Dropbox/wtsang/dotfiles/.profile
@@ -17,6 +18,7 @@ ln -s $HOME/Dropbox/wtsang/dotfiles/.bash
 ln -s $HOME/Dropbox/wtsang/dotfiles/.inputrc
 
 ln -s $HOME/Dropbox/wtsang/dotfiles/.vimrc.local
+ln -s $HOME/Dropbox/wtsang/dotfiles/.gvimrc.after
 ln -s $HOME/Dropbox/wtsang/dotfiles/.gvimrc.local
 
 ln -s $HOME/Dropbox/wtsang/dotfiles/.tmux.conf
