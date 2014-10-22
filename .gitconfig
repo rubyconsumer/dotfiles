@@ -17,6 +17,7 @@
   lo1 = log --graph --oneline --decorate
   lon = log --show-notes=* --graph --decorate
   lan = log --graph --decorate
+  hist = log --pretty=format:'%C(green)%ad%Creset | %h | %s%d [%an]' --graph --date=iso
   rt = remote
   wc = whatchanged
   nrspec = notes --ref=rspec add
@@ -33,15 +34,15 @@
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
 
-[remote "origin"]
-  fetch = +refs/notes/*:refs/notes/*
-  push = +refs/notes/*:refs/notes/*
+#[remote "origin"]
+#  fetch = +refs/notes/*:refs/notes/*
+#  push = +refs/notes/*:refs/notes/*
 
 [push]
-	default = tracking
+  default = tracking
 
 [apply]
-   whitespace = nowarn
+  whitespace = nowarn
 [color]
   branch = auto
   diff = auto
@@ -55,6 +56,7 @@
   frag = magenta bold
   old = red bold
   new = green bold
+  whitespace = red reverse
 [color "status"]
   added = yellow
   changed = green
@@ -63,6 +65,8 @@
   tool = opendiff
 [core]
   legacyheaders = false
+  excludesfile = /Users/wtsang/.gitignore_global
+  editor = vim
 [repack]
   usedeltabaseoffset = true
 [instaweb]
@@ -71,3 +75,9 @@
   port = 9999
 [pager]
   color = true
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
