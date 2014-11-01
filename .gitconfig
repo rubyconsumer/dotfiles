@@ -42,43 +42,57 @@
 [push]
   default = tracking
 
+[core]
+  legacyheaders = false
+  excludesfile = /Users/wtsang/.gitignore_global
+  editor = vim
+
+[pager]
+  color = true
+
 [apply]
   whitespace = nowarn
+
+[merge]
+  tool = opendiff
+
+[repack]
+  usedeltabaseoffset = true
+
+[instaweb]
+  local = true
+  httpd = webrick
+  port = 9999
+
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+
+
+
 [color]
   branch = auto
   diff = auto
   status = auto
+
 [color "branch"]
   current = yellow reverse
   local = yellow
   remote = green
+
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
   old = red bold
   new = green bold
   whitespace = red reverse
+
 [color "status"]
   added = yellow
   changed = green
   untracked = cyan
-[merge]
-  tool = opendiff
-[core]
-  legacyheaders = false
-  excludesfile = /Users/wtsang/.gitignore_global
-  editor = vim
-[repack]
-  usedeltabaseoffset = true
-[instaweb]
-  local = true
-  httpd = webrick
-  port = 9999
-[pager]
-  color = true
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+
