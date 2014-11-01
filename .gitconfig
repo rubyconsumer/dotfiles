@@ -17,6 +17,7 @@
   lo1 = log --graph --oneline --decorate
   lon = log --show-notes=* --graph --decorate
   lan = log --graph --decorate
+  last = log -1 HEAD
   hist = log --pretty=format:'%C(green)%ad%Creset | %h | %s%d [%an]' --graph --date=iso
   rt = remote
   wc = whatchanged
