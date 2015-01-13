@@ -151,8 +151,8 @@ function minutes_since_last_commit {
 }
 
 function git_timer_prompt() {
-  local g="$(__gitdir)"
-  if [ -n "$g" ]; then
+  if [[ $(get_git_branch) != "" ]]
+  then
     local MINUTES_SINCE_LAST_COMMIT=`minutes_since_last_commit`
     if [ "$MINUTES_SINCE_LAST_COMMIT" -gt 40 ]; then
       local COLOR=${RED}
@@ -161,10 +161,10 @@ function git_timer_prompt() {
     else
       local COLOR=${GREEN}
     fi
-    local SINCE_LAST_COMMIT="${COLOR} ($(minutes_since_last_commit)m)${NORMAL}"
-    echo ${SINCE_LAST_COMMIT}
-    #local GIT_TIMER=$(__git_ps1 "(%s|${SINCE_LAST_COMMIT})")
-    #echo ${GIT_TIMER}
+    local SINCE_LAST_COMMIT="${COLOR}($(minutes_since_last_commit)m)"
+    #echo ${SINCE_LAST_COMMIT}
+    local GIT_TIMER=$(__git_ps1 "${SINCE_LAST_COMMIT}")
+    echo "${GIT_TIMER} "
   fi
 }
 
@@ -221,7 +221,7 @@ reset_style='\['$DEFAULT_COLOR'\]'
 status_style=$reset_style'\['$GRAY'\]'
 
 export CLICOLOR=1
-export PS1="$status_style"'$fill \d \t\n'"\[$PURPLE\]\u@\h:\[$YELLOW\]\w\[\033[00m\]\n\[\$(parse_last_status)\]\[$CYAN\]\$(git_info)\[$ORANGE\]\$(parse_git_dirty_2)\[$WHITE\]$(git_timer_prompt)] "
+export PS1="$status_style"'$fill \d \t\n'"\[$PURPLE\]\u@\h:\[$YELLOW\]\w\[\033[00m\]\n\[\$(parse_last_status)\]\[$CYAN\]\$(git_info)\[$DARK_GRAY\]\$(parse_git_dirty_2)\$(git_timer_prompt)\[$WHITE\]] "
 export SUDO_PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[\e[0m\]'
 
 # Reset color for command output
