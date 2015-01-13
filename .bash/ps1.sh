@@ -227,3 +227,12 @@ export SUDO_PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[
 # Reset color for command output
 # (this one is invoked every time before a command is executed)
 trap 'echo -ne "\033[00m"' DEBUG
+
+
+# Powerline - A beautiful and useful prompt for your shell
+#function _update_ps1() {
+#   export PS1="$(~/powerline-shell.py --mode compatible $? 2> /dev/null)"
+#}
+#export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+
+
