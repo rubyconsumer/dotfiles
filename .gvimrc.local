@@ -28,3 +28,5 @@ if version >= 730 && has("macunix")
   set clipboard=unnamed
 end
 
+" Format Column
+vmap <leader>fc :!column -t<cr>gv:s/\v ([^ ])/\1<cr>gv=
