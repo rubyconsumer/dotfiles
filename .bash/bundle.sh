@@ -1,6 +1,6 @@
 alias   bx="bundle exec"
-alias  tbe="time bundle exec"
-alias ttbe="time RAILS_ENV=test bundle exec"
+alias  tbx="time bundle exec"
+alias ttbx="time RAILS_ENV=test bundle exec"
 
 alias   bi="bundle install"
 
