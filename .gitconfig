@@ -33,7 +33,10 @@
   pushnc = push origin refs/notes/cucumber
   ncore = push core +refs/notes/*:refs/notes/*
   norigin = push origin +refs/notes/*:refs/notes/*
+
   track = branch --set-upstream
+  branch-owner = for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)'
+
 
   intercommit = !sh -c 'git show "$1" > .git/commit1 && git show "$2" > .git/commit2 && interdiff .git/commit[12] | less -FRS' -
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
