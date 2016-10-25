@@ -111,3 +111,9 @@
 [rerere]
   enabled = true
 
+# auto use the prune flag when fetching
+[fetch]
+  prune = true
+
+
+
