@@ -39,6 +39,9 @@
 
   aliases = config --get-regexp alias
 
+  compare = log --left-right --graph --cherry-pick --oneline --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
+  compare-simple = log --left-right --graph --cherry-pick --oneline
+
   intercommit = !sh -c 'git show "$1" > .git/commit1 && git show "$2" > .git/commit2 && interdiff .git/commit[12] | less -FRS' -
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
