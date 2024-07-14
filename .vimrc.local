@@ -16,3 +16,4 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:
 map <D-/> <plug>NERDCommenterToggle<CR>"
 
 
+map <leader>l <Plug>TaskList
