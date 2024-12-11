@@ -11,9 +11,6 @@
         alias i="/Users/wtsang/Rails/instiki-0.11.0/instiki.rb &"
         alias set_proxy="export http_proxy=http:/localhost:8999"
 
-        #export FIGHTCLUBDISPLAY=170.71.229.205:0.0
-        #export DISPLAY=$FIGHTCLUBDISPLAY
-
         export PATH=$PATH:~/src/bin
         export CLASSPATH=$CLASSPATH:/Users/wtsang/aspectj1.5/lib/aspectjrt.jar:/Applications/java/lib/iText-2.1.3.jar
 
