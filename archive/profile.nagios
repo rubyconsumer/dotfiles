@@ -1,0 +1,9 @@
+# NAGIOS: https://www.nagios.org/
+# Enterprise Grade Monitoring Powered By Open Source.
+# Key: "CSP50" for free monitoring
+
+function restart-nagios() {
+  /opt/csw/nagios/bin/nagios -v  /opt/csw/nagios/etc/nagios.cfg && \
+  kill `cat /opt/csw/nagios/var/nagios.lock` && \
+  /opt/csw/nagios/bin/nagios -d /opt/csw/nagios/etc/nagios.cfg
+}

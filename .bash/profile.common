@@ -83,6 +83,7 @@ export HISTFILE=$HOME/.history
         # -X Disables sending the termcap initialization and deinitialization strings to the terminal.  This is sometimes desirable if the deinitialization string does something unnecessary, like clearing the screen.
         export LESS=eFRX
 
+
 # CHANGE THE WINDOW TITLE OF X TERMINALS
 case $TERM in
     xterm*|rxvt*|Eterm)
@@ -97,12 +98,6 @@ esac
 # GIT COMPLETION
 source ~/Dropbox/wtsang/dotfiles/.bash/completion/git-completion.bash
 
-
-function restart-nagios() {
-  /opt/csw/nagios/bin/nagios -v  /opt/csw/nagios/etc/nagios.cfg && \
-  kill `cat /opt/csw/nagios/var/nagios.lock` && \
-  /opt/csw/nagios/bin/nagios -d /opt/csw/nagios/etc/nagios.cfg
-}
 
 test -e $HOME/.bash/ls.sh && . $HOME/.bash/ls.sh > /dev/null
 test -e $HOME/.bash/bundle.sh && . $HOME/.bash/bundle.sh > /dev/null
