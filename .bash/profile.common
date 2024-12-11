@@ -11,7 +11,6 @@
         trap '. $HOME/.sh_logout; exit' 0
 
 
-
 # Set Command Line Interface (CLI) to VI mode
         set -o vi
 
@@ -22,11 +21,19 @@
         umask 0002
 
 
+# History configuration
+
+# don't put duplicate lines or lines starting with space in the history. See bash(1) for more options
+export HISTCONTROL=ignoreboth
+
+# history shows date and time before command
+export HISTTIMEFORMAT="%Y-%m-%d %T ~ "
+
+export HISTFILE=$HOME/.history
+
+
 # SET UP THE ALIAS VARIABLES:
         alias s='echo;echo;echo;'
-
-        alias hunt='ps uawwwx | grep tomcat | grep -v grep'
-        alias hunt-to-kill="ps uawwwx | grep tomcat | grep -v grep | tr -s ' ' | cut -f2 -d' ' | xargs kill -9"
 
         alias cman="nroff -man"
 
@@ -34,15 +41,33 @@
         alias zlock="clear;lock;dlsa"
         alias myclock="xclock -fg blue -hd red -hl yellow -rv -update 1 &"
 
+        # git alias
+        alias gpsup='git push --set-upstream origin $(git_current_branch)'
+
+# SET UP FUNCTIONS TO EMULATE ALIAS WITH PARAMETERS
+        # Example:
+        # sleep 9000
+        # hunt sleep
+        hunt() {
+          ps uawwwx | grep $1 | grep -v grep
+        }
+
+        # Example:
+        # sleep 9000
+        # hunt2kill sleep
+        hunt2kill() {
+          ps uawwwx | grep $1 | grep -v grep | tr -s ' ' | cut -f2 -d' ' | xargs kill -9
+        }
+
+
 # Allow Control-S - Control-R in reverse
+# Enable (disable) START/STOP output control. Output from the system is stopped when the system receives STOP and started when the system receives START,
+#   or if ixany is set, any character restarts output.
         stty -ixon
 
 # SET UP THE EXPORT VARIABLES:
         export TERM=xterm
         export PAGER=/usr/bin/less
-#        export HOME=/export/home/wtsang
-        export HISTCONTROL=ignoredups
-        export HISTFILE=$HOME/.history
 
 # SET UP COLOR VARIABLES:
         YELLOW='\[\033[1;33m\]'
@@ -50,6 +75,13 @@
         GREEN='\[\033[1;32m\]'
         RED='\[\033[0;31m\]'
         NORMAL='\[\033[00m\]'
+
+        # LESS
+        # -e Causes less to automatically exit the second time it reaches end-of-file.  By default, the only way to exit less is via the "q" command.
+        # -F Causes less to automatically exit if the entire file can be displayed on the first screen.
+        # -R Causes "raw" control characters to be displayed, but only ANSI "color" escape sequences and OSC 8 hyperlink sequences are output in "raw" form.
+        # -X Disables sending the termcap initialization and deinitialization strings to the terminal.  This is sometimes desirable if the deinitialization string does something unnecessary, like clearing the screen.
+        export LESS=eFRX
 
 # CHANGE THE WINDOW TITLE OF X TERMINALS
 case $TERM in
@@ -72,14 +104,5 @@ function restart-nagios() {
   /opt/csw/nagios/bin/nagios -d /opt/csw/nagios/etc/nagios.cfg
 }
 
-
-# JRUBY
-export PATH=$PATH:/jstor/applications/jruby/current/bin
-
-
-
 test -e $HOME/.bash/ls.sh && . $HOME/.bash/ls.sh > /dev/null
 test -e $HOME/.bash/bundle.sh && . $HOME/.bash/bundle.sh > /dev/null
-
-
-
