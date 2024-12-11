@@ -6,7 +6,7 @@
 # SET UP THE MAC ALIAS VARIABLES:
         alias ag="echo 'please use rg'; rg " # switch from Silver Searcher (ag) to RipGrep (rg)
 
-        alias set_displays='displayplacer "id:832B8ADB-EE3F-F659-FD7B-5596983C83DB res:3840x2160 hz:60 color_depth:8 enabled:true scaling:off origin:(0,0) degree:0" "id:35CD0E87-D48A-8832-DB74-CF9C91867965 res:1680x1050 color_depth:4 enabled:true scaling:on origin:(1011,2160) degree:0" "id:CE22286D-092F-147F-C36F-AE157EB3CA2B res:1440x2560 hz:59 color_depth:8 enabled:true scaling:off origin:(3840,-252) degree:270" "id:AD96B0A4-C92C-ABE4-A157-5149B3001949 res:2160x3840 hz:60 color_depth:8 enabled:true scaling:off origin:(-2160,-840) degree:90"'
+        alias set_displays='displayplacer "id:4D76F0E0-FCF9-4F0D-83FF-C1A7901AE09A res:3840x2160 hz:60 color_depth:8 enabled:true scaling:off origin:(0,0) degree:0" "id:361F4CF2-BA40-4B79-8889-C1667EEB8111 res:2160x3840 hz:60 color_depth:8 enabled:true scaling:off origin:(-2160,-1212) degree:270" "id:39227EBC-331A-4C81-8211-8DE731EA7B32 res:1440x2560 hz:60 color_depth:8 enabled:true scaling:off origin:(3840,0) degree:270"'
 
         alias i="/Users/wtsang/Rails/instiki-0.11.0/instiki.rb &"
         alias set_proxy="export http_proxy=http:/localhost:8999"
