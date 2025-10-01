@@ -5,7 +5,7 @@
 ###############
 # CUSTOM CODE #
 ###############
-# echo Profile Common
+echo "profile.common: loading"
 
 # HACK A KSH.LOGOUT FILE
         trap '. $HOME/.sh_logout; exit' 0

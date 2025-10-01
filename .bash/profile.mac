@@ -1,7 +1,7 @@
 ###############
 # CUSTOM CODE #
 ###############
-# echo Profile - Mac
+echo "profile.mac: loading"
 
 # SET UP THE MAC ALIAS VARIABLES:
         alias ag="echo 'please use rg'; rg " # switch from Silver Searcher (ag) to RipGrep (rg)
