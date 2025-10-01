@@ -25,7 +25,6 @@ export NVM_DIR="$HOME/.nvm"
         alias set_proxy="export http_proxy=http:/localhost:8999"
 
         export PATH=$PATH:~/src/bin
-        export CLASSPATH=$CLASSPATH:/Users/wtsang/aspectj1.5/lib/aspectjrt.jar:/Applications/java/lib/iText-2.1.3.jar
 
         export RDOCOPT="-S -f html -T hanna"
 
