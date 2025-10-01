@@ -3,6 +3,9 @@
 ###############
 echo "profile.mac: loading"
 
+# ADD HOMEBREW BIN TO PATH
+  export PATH="$PATH:/opt/homebrew/bin/"
+
 # SET UP THE MAC ALIAS VARIABLES:
         alias ag="echo 'please use rg'; rg " # switch from Silver Searcher (ag) to RipGrep (rg)
 
