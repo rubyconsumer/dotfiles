@@ -13,7 +13,7 @@ export rvm_install_on_use_flag=1
 # export rvm_make_flags="-j3"
 
 rvm_project_rvmrc_default=1
-export rvm_path="/Users/wtsang/.rvm"
+export rvm_path="/Users/winstont/.rvm"
 
 export rvm_pretty_print_flag=1
 
