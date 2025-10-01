@@ -1,2 +1,15 @@
+# ignore macOS's Finder file
+.DS_Store
+
+# rake and routes output
+routes.txt
+rake.txt
 rake_routes.txt
 rake_tasks.txt
+
+# .env files to ignore
+/.env
+/.env.local
+
+# in project workspaces, ignore bin files created for local use
+/bin_local/*
