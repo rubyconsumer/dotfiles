@@ -6,6 +6,11 @@ echo "profile.mac: loading"
 # ADD HOMEBREW BIN TO PATH
   export PATH="$PATH:/opt/homebrew/bin/"
 
+
+# Fix rails server issue with older versions of Ruby
+# https://github.com/rails/rails/issues/38560
+  export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 # SET UP THE MAC ALIAS VARIABLES:
         alias ag="echo 'please use rg'; rg " # switch from Silver Searcher (ag) to RipGrep (rg)
 
