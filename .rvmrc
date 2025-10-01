@@ -9,7 +9,8 @@ export rvm_install_on_use_flag=1
  export rvm_gemset_create_on_use_flag=1
 
 # Make Flags
-export rvm_make_flags="-j3"
+# RVM can detect number of CPU threads and set the '-j' flag automatically if you do not set it.
+# export rvm_make_flags="-j3"
 
 rvm_project_rvmrc_default=1
 export rvm_path="/Users/wtsang/.rvm"
