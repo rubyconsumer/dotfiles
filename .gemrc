@@ -2,7 +2,7 @@
 :verbose: true
 :benchmark: false
 :sources: 
-- http://gems.rubyforge.org/
+- http://rubygems.org/
 - http://gems.github.com
 :update_sources: true
 :backtrace: false
