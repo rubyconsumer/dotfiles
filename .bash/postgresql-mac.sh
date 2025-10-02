@@ -1,4 +1,4 @@
-echo "postgresql-mac: loading"
+echo "  * postgresql-mac: loading"
 
 # Set up PGHOST to be localhost
 export PGHOST=localhost

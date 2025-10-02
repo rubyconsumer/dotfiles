@@ -1,4 +1,4 @@
-echo "git-mac: loading"
+echo "  * git-mac: loading"
 
 # Git Branch Order by Date (gbod)
 alias gbod="git branch-owner | sort -k5n -k2M -k3n -k4n"
