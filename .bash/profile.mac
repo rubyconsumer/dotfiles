@@ -60,7 +60,8 @@ export NVM_DIR="$HOME/.nvm"
 # source ~/.bash_completion.d/todo_completer.sh
 # complete -F _todo_sh -o default todo
 
-
+# postgresql
+  test -e $HOME/.bash/postgresql-mac.sh && . $HOME/.bash/postgresql-mac.sh
 
 # ARE WE AN INTERACTIVE SHELL?
 # if [ "$PS1" ]; then
@@ -77,9 +78,6 @@ export NVM_DIR="$HOME/.nvm"
 alias netstat_osx="sudo lsof -i -P"
 
 
-
-# Add PostgreSQL bin to path
-export PATH=/opt/local/lib/postgresql82/bin:$PATH
 
 # Your previous .profile  (if any) is saved as .profile.dpsaved
 # Setting the path for DarwinPorts.
