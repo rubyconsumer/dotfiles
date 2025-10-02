@@ -52,6 +52,9 @@ export NVM_DIR="$HOME/.nvm"
         # haml lint: lint files with new changes
         alias hlint="git diff-tree -r --no-commit-id --name-only 'origin/master..HEAD' | xargs ls -1 2>/dev/null | grep '\.haml$' | xargs bundle exec haml-lint"
 
+        # rails start: clean up log files and start rails server
+        alias rstart="s s s s s rm log/development.log; rm log/test.log; rails s -p 3000"
+
 
 # LIFEHACKER TODO LIST
 # source ~/.bash_completion.d/todo_completer.sh
