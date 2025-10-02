@@ -49,6 +49,9 @@ export NVM_DIR="$HOME/.nvm"
         alias gbod="git branch-owner | sort -k5n -k2M -k3n -k4n" # date sort
         alias gbon="git branch-owner | sort -k7 | grep remote | cut -d \" \" -f 8- | grep -v HEAD | grep -v master" # name sort and filtered
 
+        # haml lint: lint files with new changes
+        alias hlint="git diff-tree -r --no-commit-id --name-only 'origin/master..HEAD' | xargs ls -1 2>/dev/null | grep '\.haml$' | xargs bundle exec haml-lint"
+
 
 # LIFEHACKER TODO LIST
 # source ~/.bash_completion.d/todo_completer.sh
