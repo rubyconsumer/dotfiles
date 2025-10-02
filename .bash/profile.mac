@@ -46,9 +46,6 @@ export NVM_DIR="$HOME/.nvm"
 
         alias syn-work="/Applications/synergy-1.3.1/synergyc -f orion.local"
 
-        alias gbod="git branch-owner | sort -k5n -k2M -k3n -k4n" # date sort
-        alias gbon="git branch-owner | sort -k7 | grep remote | cut -d \" \" -f 8- | grep -v HEAD | grep -v master" # name sort and filtered
-
         # haml lint: lint files with new changes
         alias hlint="git diff-tree -r --no-commit-id --name-only 'origin/master..HEAD' | xargs ls -1 2>/dev/null | grep '\.haml$' | xargs bundle exec haml-lint"
 
@@ -62,6 +59,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # postgresql
   test -e $HOME/.bash/postgresql-mac.sh && . $HOME/.bash/postgresql-mac.sh
+
+# git
+  test -e $HOME/.bash/git-mac.sh && . $HOME/.bash/git-mac.sh
 
 # ARE WE AN INTERACTIVE SHELL?
 # if [ "$PS1" ]; then
@@ -93,10 +93,6 @@ alias ett='mate app config lib db public test vendor/plugins &'
 
 # SVN Configuration
 export SVN_EDITOR="mate -w"
-
-
-# GIT Configuration
-export GIT_EDITOR="mate -w"
 
 
 # BASHIFY GEM DOCS
@@ -137,11 +133,6 @@ if [ -f /opt/local/etc/profile.d/cdargs-bash.sh ]; then
     source /opt/local/etc/profile.d/cdargs-bash.sh
 fi
 
-
-# Ports git bash_completion
-# if [ -f /opt/local/etc/bash_completion ]; then
-#     . /opt/local/etc/bash_completion
-# fi
 
 # Brew bash_completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
