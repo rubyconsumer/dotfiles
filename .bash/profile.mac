@@ -28,6 +28,8 @@ export NVM_DIR="$HOME/.nvm"
 
         #export RDOCOPT="-S -f html -T hanna"
 
+# export secret information
+  test -e $HOME/.bash/secret-export.sh && . $HOME/.bash/secret-export.sh
 
 # SET UP THE ALIAS VARIABLES:
 
