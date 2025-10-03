@@ -11,11 +11,6 @@ echo "profile.mac: loading"
 # https://github.com/rails/rails/issues/38560
   export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# Node Version Manager (nvm) set up
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 # SET UP THE MAC ALIAS VARIABLES:
   # rg (ripgrep) related aliases
   alias ag="echo 'please use rg'; rg " # switch from Silver Searcher (ag) to RipGrep (rg)
@@ -57,11 +52,14 @@ export NVM_DIR="$HOME/.nvm"
 # source ~/.bash_completion.d/todo_completer.sh
 # complete -F _todo_sh -o default todo
 
-# postgresql
-  test -e $HOME/.bash/postgresql-mac.sh && . $HOME/.bash/postgresql-mac.sh
-
 # git
   test -e $HOME/.bash/git-mac.sh && . $HOME/.bash/git-mac.sh
+
+# node information
+  test -e $HOME/.bash/secret-export.sh && . $HOME/.bash/secret-export.sh
+
+# postgresql
+  test -e $HOME/.bash/postgresql-mac.sh && . $HOME/.bash/postgresql-mac.sh
 
 # ARE WE AN INTERACTIVE SHELL?
 # if [ "$PS1" ]; then
