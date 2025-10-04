@@ -108,11 +108,6 @@ _gemdocomplete() {
 complete -o default -o nospace -F _gemdocomplete gemdoc
 
 
-# JRUBY SET UP
-export PATH=$PATH:/Applications/jruby/current/bin
-export JRUBY_HOME=/Applications/jruby/current
-
-
 # MYSQL SET UP
 export PATH="$PATH:/usr/local/mysql/bin"
 export MYSQL_PS1="\\d@\\h> "
@@ -120,10 +115,6 @@ export MYSQL_PS1="\\d@\\h> "
 
 # Local User Gem Set Up
 export PATH="$PATH:/Users/wtsang/.gem/ruby/1.8/bin"
-
-
-# Add Synergy Config
-# /Applications/synergy-1.3.1/synergys -f -c synergy.conf
 
 
 # Add cdargs    (from: http://www.entropy.ch/blog/Mac+OS+X/2008/06/03/UNIX-Tool-Tip-cdargs.html)
