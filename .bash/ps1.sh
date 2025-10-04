@@ -1,23 +1,15 @@
+echo "  * ps1: loading"
+
 ############################################
-
 # Modified from emilis bash prompt script
-
 # from https://github.com/emilis/emilis-config/blob/master/.bash_ps1
-
 #
-
 # Modified for Mac OS X by
-
 # @corndogcomputer
-
 # Modified further by
-
 # @jangosteve
-
 # Modified even further by
-
 # @winstont
-
 ###########################################
 
 function get_git_branch {

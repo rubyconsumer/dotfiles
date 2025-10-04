@@ -52,6 +52,7 @@ echo "profile.mac: loading"
 # source ~/.bash_completion.d/todo_completer.sh
 # complete -F _todo_sh -o default todo
 
+
 # git
   test -e $HOME/.bash/git-mac.sh && . $HOME/.bash/git-mac.sh
 
@@ -60,6 +61,9 @@ echo "profile.mac: loading"
 
 # postgresql
   test -e $HOME/.bash/postgresql-mac.sh && . $HOME/.bash/postgresql-mac.sh
+
+# PS1 configuration: primary prompt string in bash
+  test -e $HOME/.bash/ps1.sh && . $HOME/.bash/ps1.sh
 
 
 # ARE WE AN INTERACTIVE SHELL?
@@ -135,8 +139,6 @@ export COPYFILE_DISABLE=true
 
 # Add local bin path
 export PATH=/usr/local/bin:$PATH
-
-test -e $HOME/.bash/ps1.sh && . $HOME/.bash/ps1.sh #> /dev/null
 
 # brew default location for go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
