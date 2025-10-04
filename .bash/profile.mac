@@ -76,13 +76,6 @@ echo "profile.mac: loading"
 alias netstat_osx="sudo lsof -i -P"
 
 
-
-# Your previous .profile  (if any) is saved as .profile.dpsaved
-# Setting the path for DarwinPorts.
-# export PATH=.:/opt/local/bin:/opt/local/sbin:$PATH
-
-
-
 # TextMate
 alias et='mate . &'
 alias ett='mate app config lib db public test vendor/plugins &'
