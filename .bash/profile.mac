@@ -154,3 +154,7 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Add brew erlang man pages
 export MANPATH="$MANPATH:/usr/local/opt/erlang/lib/erlang/man"
+
+# For pkg-config to find libpq.
+#   Needed for: Installing pg 1.5.6 with native extensions
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
