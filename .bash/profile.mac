@@ -61,6 +61,7 @@ echo "profile.mac: loading"
 # postgresql
   test -e $HOME/.bash/postgresql-mac.sh && . $HOME/.bash/postgresql-mac.sh
 
+
 # ARE WE AN INTERACTIVE SHELL?
 # if [ "$PS1" ]; then
 #    case $TERM in
@@ -69,7 +70,6 @@ echo "profile.mac: loading"
 #        ;;
 #    esac
 # fi
-
 
 
 # replacement netstat cmd to find ports used by apps on OS X
@@ -124,9 +124,7 @@ fi
 
 
 # Brew bash_completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 # Setup RVM
 # if [[ -s /Users/wtsang/.rvm/scripts/rvm ]] ; then source /Users/wtsang/.rvm/scripts/rvm ; fi
