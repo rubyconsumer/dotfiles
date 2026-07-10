@@ -1,13 +1,17 @@
-echo ".profile: loading"
+# POSIX login profile — the portable entry point (any unix, any sh).
+# bash-specific setup lives in ~/.bash_profile, which sources this first.
 
-# CUSTOM SET-UP
-        test -e $HOME/.bash/profile.common && . $HOME/.bash/profile.common
-        test -e $HOME/.bash/profile.mac && . $HOME/.bash/profile.mac
+[ -f "$HOME/.shell/env.sh" ] && . "$HOME/.shell/env.sh"
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+dotfiles_debug ".profile: loading"
+
+[ -f "$HOME/.shell/aliases.sh" ] && . "$HOME/.shell/aliases.sh"
+[ -f "$HOME/.shell/ls.sh" ] && . "$HOME/.shell/ls.sh"
+[ -f "$HOME/.shell/bundle.sh" ] && . "$HOME/.shell/bundle.sh"
+
+# macOS-local layer
+if [ "$(uname)" = "Darwin" ] && [ -f "$HOME/.shell/mac.sh" ]; then
+  . "$HOME/.shell/mac.sh"
 fi
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-echo ".profile: finished"
+dotfiles_debug ".profile: finished"
