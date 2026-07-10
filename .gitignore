@@ -1,4 +1,4 @@
 .DS_Store
 *.swp
 
-.bash/secret-export.sh
+shell/secret-export.sh

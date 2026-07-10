@@ -1,4 +1,6 @@
-echo "  * ps1: loading"
+# bash prompt (bash-only; PROMPT_COMMAND -> precmd, DEBUG trap -> preexec for zsh).
+
+dotfiles_debug "prompt.bash: loading"
 
 ############################################
 # Modified from emilis bash prompt script
@@ -17,14 +19,8 @@ function get_git_branch {
 }
 
 # From https://gist.github.com/31631
-# TODO: Look into git completion commands like __git_ps1
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1 /"
-}
-
-function parse_git_dirty {
-  gitbranch=$(get_git_branch)
-  [[ $gitbranch != "" ]] && [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
 }
 
 # taken from http://plasti.cx/2009/10/23/vebose-git-dirty-prompt
@@ -102,10 +98,8 @@ function parse_last_status {
 }
 
 function prompt_command {
-  # Fill with minuses
-  # (this is recalculated every time the prompt is shown in function prompt_command):
-
-  # create a $fill of all screen width minus the time string and a space:
+  # create a $fill of all screen width minus the time string and a space
+  # (recalculated every time the prompt is shown):
   let fillsize=${COLUMNS}-20
   fill=""
   while [ "$fillsize" -gt "0" ]
@@ -128,14 +122,8 @@ function prompt_command {
 
 PROMPT_COMMAND=prompt_command
 
-
-
-# GIT COMPLETION
-source ~/Dropbox/wtsang/dotfiles/.bash/completion/git-completion.bash
-
 function minutes_since_last_commit {
   now=`date +%s`
-  # last_commit=`git log --pretty=format:'%at' -1`
   last_commit=`git log --pretty=format:'%ct' -1`
   seconds_since_last_commit=$((now-last_commit))
   minutes_since_last_commit=$((seconds_since_last_commit/60))
@@ -154,45 +142,14 @@ function git_timer_prompt() {
       local COLOR=${GREEN}
     fi
     local SINCE_LAST_COMMIT="${COLOR}($(minutes_since_last_commit)m)"
-    #echo ${SINCE_LAST_COMMIT}
-    local GIT_TIMER=$(__git_ps1 "${SINCE_LAST_COMMIT}")
+    if type __git_ps1 > /dev/null 2>&1; then
+      local GIT_TIMER=$(__git_ps1 "${SINCE_LAST_COMMIT}")
+    else
+      local GIT_TIMER="${SINCE_LAST_COMMIT}"
+    fi
     echo "${GIT_TIMER} "
   fi
 }
-
-
-##PS1="\[\033[01;35m\]\u@\h:\[\033[01;33m\]\w\[\033[00m\]\n\$(parse_git_branch)\[\033[01;33m\]]\[\033[00m\] \[\033[00m\]\[\e]0;\H:\w\a\]"
-# Test differences between parse_git_branch and git_ps1
-#function set_prompt()
-#{
-#  export PS1="\[\033[01;35m\]\u@\h:\[\033[01;33m\]\w\[\033[00m\]\n\$(parse_git_branch)\$(__git_ps1 )$(git_timer_prompt)\[\033[01;33m\]]\[\033[00m\] \[\033[00m\]\[\e]0;\H:\w\a\]"
-#}
-#
-#
-## SET THE PROMPT TO NORMAL IF WE'RE ON THE LOCALHOST, PUT 'REMOTE' IN RED IF WE'RE SSH'D TO SOMEWHERE ELSE.
-#if [ ! -z "$SSH_CONNECTION" ]; then
-#    case ${TERM} in
-#    xterm-color)
-#        PS1='\[\033[01;31m\]*remote*\[\033[00m\] \[\033[01;36m\]\u@\h: \[\033[01;36m\] \$(parse_git_branch) \$(__git_ps1 " (%s)") \w \[\033[00m\] $ '
-#        ;;
-#    xterm*|rxvt*|Eterm)
-#        PS1='\[\033[01;31m\]*remote*\[\033[00m\] \[\033[01;33m\]\u@\h: \[\033[01;36m\] \w $\[\033[00m\] \$(parse_git_branch) \$(__git_ps1 " (%s)")'
-#        ;;
-#    *)
-#        PS1="*remote* ${PS1}"
-#        ;;
-#    esac
-#fi
-#export PS1
-#PROMPT_COMMAND=set_prompt
-
-
-export -f get_git_branch
-export -f parse_git_branch
-export -f parse_git_dirty
-export -f parse_git_dirty_2
-export -f git_info
-export -f parse_last_status
 
 DEFAULT_COLOR="\033[0;0m"
 ORANGE="\033[0;33m"
@@ -220,12 +177,4 @@ export SUDO_PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[
 # (this one is invoked every time before a command is executed)
 trap 'echo -ne "\033[00m"' DEBUG
 
-
-# Powerline - A beautiful and useful prompt for your shell
-#function _update_ps1() {
-#   export PS1="$(~/powerline-shell.py --mode compatible $? 2> /dev/null)"
-#}
-#export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-
-
-echo "  * ps1: finished"
+dotfiles_debug "prompt.bash: finished"
