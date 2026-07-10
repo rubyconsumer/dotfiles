@@ -18,6 +18,7 @@ FILES="
 .bashrc
 .inputrc
 .editrc
+.umich_aliases
 .tmux.conf
 .gitconfig
 .gitignore_global

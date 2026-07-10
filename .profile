@@ -6,6 +6,7 @@
 dotfiles_debug ".profile: loading"
 
 [ -f "$HOME/.shell/aliases.sh" ] && . "$HOME/.shell/aliases.sh"
+[ -f "$HOME/.umich_aliases" ] && . "$HOME/.umich_aliases"
 [ -f "$HOME/.shell/ls.sh" ] && . "$HOME/.shell/ls.sh"
 [ -f "$HOME/.shell/bundle.sh" ] && . "$HOME/.shell/bundle.sh"
 

@@ -1,0 +1,7 @@
+# UMich aliases (restored from the old profile.mac).
+
+dotfiles_debug ".umich_aliases: loading"
+
+alias svnprofile="svn co svn+ssh://winstont@login.itd.umich.edu/afs/umich.edu/user/w/i/winstont/svn/profile"
+
+alias ssh-tunnel="ssh -T -o serveraliveinterval=90 -o serveralivecountmax=3 -l winstont -D 1080 -g -C -x login.itd.umich.edu"
