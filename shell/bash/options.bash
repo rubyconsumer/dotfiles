@@ -16,4 +16,4 @@ export HISTFILE=$HOME/.history
 # Allow Control-S - Control-R in reverse
 # Enable (disable) START/STOP output control. Output from the system is stopped when the system receives STOP and started when the system receives START,
 #   or if ixany is set, any character restarts output.
-stty -ixon
+[ -t 0 ] && stty -ixon
