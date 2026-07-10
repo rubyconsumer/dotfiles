@@ -228,3 +228,4 @@ trap 'echo -ne "\033[00m"' DEBUG
 #export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 
 
+echo "  * ps1: finished"
