@@ -8,3 +8,6 @@ export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH  # iMa
 
 # Add PostgreSQL 12 for 10x Application
 export PATH="/Library/PostgreSQL/12/bin/:$PATH"
+
+# Add PostgreSQL 18 for 10x Application
+export PATH=/opt/homebrew/opt/libpq/bin/psql:$PATH
