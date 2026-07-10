@@ -18,19 +18,22 @@ echo "profile.mac: loading"
 
         alias set_displays='displayplacer "id:4D76F0E0-FCF9-4F0D-83FF-C1A7901AE09A res:3840x2160 hz:60 color_depth:8 enabled:true scaling:off origin:(0,0) degree:0" "id:361F4CF2-BA40-4B79-8889-C1667EEB8111 res:2160x3840 hz:60 color_depth:8 enabled:true scaling:off origin:(-2160,-1212) degree:270" "id:39227EBC-331A-4C81-8211-8DE731EA7B32 res:1440x2560 hz:60 color_depth:8 enabled:true scaling:off origin:(3840,0) degree:270"'
 
-        alias i="/Users/wtsang/Rails/instiki-0.11.0/instiki.rb &"
+        # alias i="/Users/wtsang/Rails/instiki-0.11.0/instiki.rb &"
         alias set_proxy="export http_proxy=http:/localhost:8999"
 
-        export PATH=$PATH:~/src/bin
+        # export PATH=$PATH:~/src/bin
 
         #export RDOCOPT="-S -f html -T hanna"
+
+# add path for Claude
+  export PATH="$HOME/.local/bin:$PATH"
 
 # export secret information
   test -e $HOME/.bash/secret-export.sh && . $HOME/.bash/secret-export.sh
 
 # SET UP THE ALIAS VARIABLES:
 
-        alias todo="/Users/wtsang/Documents/notes/bin/todo.sh"
+        # alias todo="/Users/wtsang/Documents/notes/bin/todo.sh"
         alias ri="ri -Tf ansi"
         alias rihtml="ri -Tf html"
         alias genrdoc="gem rdoc --all --overwrite --no-ri"
@@ -91,33 +94,40 @@ export SVN_EDITOR="mate -w"
 
 
 # BASHIFY GEM DOCS
-export GEMDIR=`gem env gemdir`
-
-gemdoc() {
-  open `gem env gemdir`/doc/`$(which ls) \`gem env gemdir\`/doc | grep $1 | sort | tail -1`/rdoc/index.html
-}
-
-_gemdocomplete() {
-  COMPREPLY=($(compgen -W '$(`which ls` $GEMDIR/doc)' -- ${COMP_WORDS[COMP_CWORD]}))
-  return 0
-}
-
-complete -o default -o nospace -F _gemdocomplete gemdoc
+# Disabled: `gem env gemdir` ran system Ruby's gem before RVM loaded, which
+# crashed in tmux where RVM's GEM_HOME/GEM_PATH are inherited from the parent shell.
+# export GEMDIR=`gem env gemdir`
+#
+# gemdoc() {
+#   open `gem env gemdir`/doc/`$(which ls) \`gem env gemdir\`/doc | grep $1 | sort | tail -1`/rdoc/index.html
+# }
+#
+# _gemdocomplete() {
+#   COMPREPLY=($(compgen -W '$(`which ls` $GEMDIR/doc)' -- ${COMP_WORDS[COMP_CWORD]}))
+#   return 0
+# }
+#
+# complete -o default -o nospace -F _gemdocomplete gemdoc
 
 
 # MYSQL SET UP
-export PATH="$PATH:/usr/local/mysql/bin"
-export MYSQL_PS1="\\d@\\h> "
+# export PATH="$PATH:/usr/local/mysql/bin"
+# export MYSQL_PS1="\\d@\\h> "
 
 
 # Local User Gem Set Up
-export PATH="$PATH:/Users/wtsang/.gem/ruby/1.8/bin"
+# export PATH="$PATH:/Users/wtsang/.gem/ruby/1.8/bin"
 
 
 # Add cdargs    (from: http://www.entropy.ch/blog/Mac+OS+X/2008/06/03/UNIX-Tool-Tip-cdargs.html)
 if [ -f /opt/local/etc/profile.d/cdargs-bash.sh ]; then
     source /opt/local/etc/profile.d/cdargs-bash.sh
 fi
+
+# use cdargs together with the shell built-in "cd" command
+# function cv () {
+#   cdargs "$1" && cd "`cat "$HOME/.cdargsresult"`" ;
+# }
 
 
 # Brew bash_completion
@@ -141,10 +151,10 @@ export COPYFILE_DISABLE=true
 export PATH=/usr/local/bin:$PATH
 
 # brew default location for go
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+# export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Add brew erlang man pages
-export MANPATH="$MANPATH:/usr/local/opt/erlang/lib/erlang/man"
+# export MANPATH="$MANPATH:/usr/local/opt/erlang/lib/erlang/man"
 
 # For pkg-config to find libpq.
 #   Needed for: Installing pg 1.5.6 with native extensions
