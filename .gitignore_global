@@ -12,4 +12,4 @@ rake_tasks.txt
 /.env.local
 
 # in project workspaces, ignore bin files created for local use
-/bin_local/*
+/bin_local/*.*
