@@ -93,11 +93,16 @@ function git_info {
 
 # Idea from http://blog.ubrio.us/nix/best-bash-prompt/
 # Modified with help from @bigeasy
+# Reads WT_LAST_STATUS (saved by prompt_command): $? here would only see
+# the exit status of the previous command substitution in PS1.
 function parse_last_status {
-  RET=$?; [ $RET -eq 0 ] && echo -e "$GREEN" || echo -e "$RED"
+  [ "${WT_LAST_STATUS:-0}" -eq 0 ] && echo -e "$GREEN" || echo -e "$RED"
 }
 
 function prompt_command {
+  # capture the last command's exit status before anything else runs
+  WT_LAST_STATUS=$?
+
   # create a $fill of all screen width minus the time string and a space
   # (recalculated every time the prompt is shown):
   let fillsize=${COLUMNS}-20
@@ -170,7 +175,8 @@ reset_style='\['$DEFAULT_COLOR'\]'
 status_style=$reset_style'\['$GRAY'\]'
 
 export CLICOLOR=1
-export PS1="$status_style"'$fill \d \t\n'"\[$PURPLE\]\u@\h:\[$YELLOW\]\w\[\033[00m\]\n\[\$(parse_last_status)\]\[$CYAN\]\$(git_info)\[$DARK_GRAY\]\$(parse_git_dirty_2)\$(git_timer_prompt)\[$WHITE\]] "
+# The ] before the cursor is green/red by the last command's exit status.
+export PS1="$status_style"'$fill \d \t\n'"\[$PURPLE\]\u@\h:\[$YELLOW\]\w\[\033[00m\]\n\[$CYAN\]\$(git_info)\[$DARK_GRAY\]\$(parse_git_dirty_2)\$(git_timer_prompt)\[\$(parse_last_status)\]] "
 export SUDO_PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[\e[0m\]'
 
 # Reset color for command output

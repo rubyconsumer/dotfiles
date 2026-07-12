@@ -77,6 +77,7 @@ autoload -Uz add-zsh-hook
 add-zsh-hook precmd wt_prompt_fill
 add-zsh-hook preexec wt_reset_color
 
+# The ] before the cursor is green/red by the last command's exit status.
 PROMPT="%{${WT_RESET}${WT_GRAY}%}"'${WT_FILL}'" %D{%a %b %d} %*
 %{${WT_PURPLE}%}%n@%m:%{${WT_YELLOW}%}%~%{${WT_RESET}%}
-%{%(?.${WT_GREEN}.${WT_RED})%}%{${WT_CYAN}%}"'$(wt_git_branch)'"%{${WT_DARK_GRAY}%}"'$(wt_git_dirty)$(wt_git_timer)'"%{${WT_WHITE}%}] %{${WT_RESET}%}"
+%{${WT_CYAN}%}"'$(wt_git_branch)'"%{${WT_DARK_GRAY}%}"'$(wt_git_dirty)$(wt_git_timer)'"%{%(?.${WT_GREEN}.${WT_RED})%}] %{${WT_RESET}%}"
