@@ -9,7 +9,7 @@ alias  cls="clear;ls"
 alias  lsa="ls -aFq"
 alias clsa="clear;lsa"
 
-alias   ll="ls -l"
+alias   ll="ls -lh"
 alias  cll="clear;ll"
 
 alias  lla="ls -alFq"

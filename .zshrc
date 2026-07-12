@@ -21,6 +21,9 @@ plugins=(git vi-mode)
 
 [ -f "$ZSH/oh-my-zsh.sh" ] && source "$ZSH/oh-my-zsh.sh"
 
+# Re-assert our ls aliases over OMZ's lib/directories.zsh versions
+[ -f "$HOME/.shell/ls.sh" ] && . "$HOME/.shell/ls.sh"
+
 [ -f "$HOME/.shell/zsh/options.zsh" ] && . "$HOME/.shell/zsh/options.zsh"
 
 dotfiles_debug ".zshrc: finished"
