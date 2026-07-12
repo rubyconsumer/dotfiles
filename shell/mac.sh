@@ -19,7 +19,10 @@ export COPYFILE_DISABLE=true
 
 # For pkg-config to find libpq.
 #   Needed for: Installing pg 1.5.6 with native extensions
-export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+case ":${PKG_CONFIG_PATH:-}:" in
+  *":/opt/homebrew/opt/libpq/lib/pkgconfig:"*) ;;
+  *) export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}" ;;
+esac
 
 # rg (ripgrep) related aliases
 alias ag="echo 'please use rg'; rg " # switch from Silver Searcher (ag) to RipGrep (rg)

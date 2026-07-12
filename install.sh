@@ -98,7 +98,7 @@ fi
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "bootstrapping oh-my-zsh"
   run git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
-  # zsh compaudit rejects group-writable completion dirs (umask here is 0002)
+  # zsh compaudit rejects group-writable completion dirs
   run chmod -R g-w,o-w "$HOME/.oh-my-zsh"
 fi
 

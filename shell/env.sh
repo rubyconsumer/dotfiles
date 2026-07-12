@@ -17,10 +17,21 @@ path_prepend() {
   esac
 }
 
+# Append a directory to PATH if it exists and is not already present.
+path_append() {
+  [ -d "$1" ] || return 0
+  case ":$PATH:" in
+    *":$1:"*) ;;
+    *) PATH="$PATH:$1" ;;
+  esac
+}
+
 export EDITOR=vi
 export PAGER=less
-export CDPATH=.:$HOME
-umask 0002
+# Not exported: an exported CDPATH leaks into scripts and makes their `cd`
+# print the resolved directory to stdout.
+CDPATH=.:$HOME
+umask 022
 
 # LESS
 # -e Causes less to automatically exit the second time it reaches end-of-file.

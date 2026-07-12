@@ -3,5 +3,6 @@
 
 dotfiles_debug "mac-ruby.sh: loading"
 
-export PATH="$PATH:$HOME/.rvm/bin"
+path_append "$HOME/.rvm/bin"
+export PATH
 [ -s "$HOME/.rvm/scripts/rvm" ] && . "$HOME/.rvm/scripts/rvm"
