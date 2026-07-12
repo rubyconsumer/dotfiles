@@ -42,5 +42,6 @@ alias rstart="s s s s s rm log/development.log; rm log/test.log; rails s -p 3000
 [ -f "$HOME/.shell/mac-git.sh" ] && . "$HOME/.shell/mac-git.sh"
 [ -f "$HOME/.shell/mac-node.sh" ] && . "$HOME/.shell/mac-node.sh"
 [ -f "$HOME/.shell/mac-postgres.sh" ] && . "$HOME/.shell/mac-postgres.sh"
+[ -f "$HOME/.shell/mac-ruby.sh" ] && . "$HOME/.shell/mac-ruby.sh"
 
 dotfiles_debug "mac.sh: finished"
