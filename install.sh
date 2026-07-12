@@ -16,6 +16,8 @@ FILES="
 .profile
 .bash_profile
 .bashrc
+.zprofile
+.zshrc
 .inputrc
 .editrc
 .umich_aliases
@@ -91,6 +93,13 @@ prune_dead_links
 
 if [ ! -f "$DOTFILES/shell/secret-export.sh" ]; then
   echo "note: shell/secret-export.sh is missing (machine-local secrets; create it by hand)"
+fi
+
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  echo "bootstrapping oh-my-zsh"
+  run git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
+  # zsh compaudit rejects group-writable completion dirs (umask here is 0002)
+  run chmod -R g-w,o-w "$HOME/.oh-my-zsh"
 fi
 
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then

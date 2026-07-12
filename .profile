@@ -15,4 +15,8 @@ if [ "$(uname)" = "Darwin" ] && [ -f "$HOME/.shell/mac.sh" ]; then
   . "$HOME/.shell/mac.sh"
 fi
 
+# Deliberately not exported: lets .zshrc/.bashrc know whether this shell
+# already ran the profile, while nested shells re-source to get aliases back.
+DOTFILES_PROFILE_LOADED=1
+
 dotfiles_debug ".profile: finished"

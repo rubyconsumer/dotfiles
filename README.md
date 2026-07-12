@@ -1,7 +1,7 @@
 # dotfiles
 
-Personal dotfiles, symlinked into `$HOME`. Currently bash, structured so a
-future zsh migration only has to replace one directory (see below).
+Personal dotfiles, symlinked into `$HOME`. Primary shell is zsh with
+[Oh My Zsh](https://ohmyz.sh/); bash remains fully supported as a fallback.
 
 ## Install
 
@@ -22,11 +22,13 @@ Re-running it is always safe.
 | Path | Purpose |
 |---|---|
 | `.profile` | POSIX login entry point — portable to any unix |
+| `.zprofile` / `.zshrc` | zsh entry points: source `.profile`, then Oh My Zsh + the zsh layer |
 | `.bash_profile` / `.bashrc` | bash entry points: source `.profile`, then the bash-only layer |
 | `shell/` (linked as `~/.shell`) | shared shell config |
 | `shell/env.sh`, `aliases.sh`, `ls.sh`, `bundle.sh` | POSIX-portable: works on any unix, any sh |
 | `shell/mac.sh`, `mac-*.sh` | macOS-local: Homebrew, Volta, PostgreSQL, mac aliases. Skipped off-Darwin |
-| `shell/bash/` | **bash-only**: options, completion, prompt — the zsh-port worklist |
+| `shell/zsh/` | **zsh-only**: extra options/bindings and `omz-custom/` (the `winstont` prompt theme) |
+| `shell/bash/` | **bash-only**: options, completion, prompt (kept as the fallback shell) |
 | `shell/secret-export.sh` | machine-local secrets; gitignored, create by hand |
 | `.vimrc` / `.gvimrc` | self-contained vim config on vim-plug |
 | everything else | per-tool configs linked straight into `$HOME` |
@@ -40,19 +42,16 @@ Rules of the layering:
   by hand — it deduplicates and skips missing directories.
 - Set `DOTFILES_DEBUG=1` to trace what gets sourced at shell startup.
 
-## Future zsh migration
+## zsh + Oh My Zsh
 
-The login shell is already `/bin/zsh`; bash is launched by the terminal
-profile. To migrate:
+The installer clones Oh My Zsh to `~/.oh-my-zsh` if missing. `.zshrc` points
+`ZSH_CUSTOM` into the repo (`shell/zsh/omz-custom/`), so the custom prompt
+theme (`winstont` — a port of `shell/bash/prompt.bash` with the fill line,
+git dirty flags, and minutes-since-last-commit timer) lives in git, not in
+the OMZ checkout. vi editing mode comes from the OMZ `vi-mode` plugin;
+history dedup/timestamps and case-insensitive completion come from OMZ
+defaults, replacing what `shell/bash/options.bash` and `.inputrc` did for
+bash. OMZ auto-update is disabled — run `omz update` by hand.
 
-1. Add `.zprofile` that sources `~/.profile` (all of `shell/*.sh` is POSIX
-   and works unchanged), then a new `shell/zsh/` layer.
-2. Port `shell/bash/`, the only bash-specific code:
-   - `options.bash`: `HISTCONTROL` → `setopt HIST_IGNORE_DUPS HIST_IGNORE_SPACE`;
-     `HISTTIMEFORMAT` → `setopt EXTENDED_HISTORY`; `set -o vi` → `bindkey -v`.
-   - `completion.bash` → `autoload -Uz compinit && compinit` (git completion
-     ships with zsh).
-   - `prompt.bash`: `PROMPT_COMMAND` → `precmd()`; the `DEBUG` trap → `preexec()`;
-     PS1 escapes `\u \h \w \[ \]` → `%n %m %~ %{ %}`.
-3. `.inputrc` is readline-only — port its bindings to `bindkey` in `.zshrc`.
-4. Point the terminal profile at zsh.
+The bash layer (`shell/bash/`, `.bash_profile`, `.bashrc`, `.inputrc`) is
+kept working as a fallback; both shells share everything under `shell/*.sh`.

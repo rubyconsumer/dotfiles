@@ -30,4 +30,5 @@ umask 0002
 export LESS=eFRX
 
 path_prepend "$HOME/.local/bin"
+path_prepend "$HOME/.opencode/bin"
 export PATH
