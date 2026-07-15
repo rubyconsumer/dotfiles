@@ -17,6 +17,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$HOME/.shell/zsh/omz-custom"
 ZSH_THEME="winstont"
 zstyle ':omz:update' mode disabled  # update by hand with: omz update
+DISABLE_MAGIC_FUNCTIONS=true  # OMZ's bracketed-paste-magic corrupts pastes in vi-mode
 plugins=(git vi-mode)
 
 [ -f "$ZSH/oh-my-zsh.sh" ] && source "$ZSH/oh-my-zsh.sh"
