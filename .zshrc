@@ -18,6 +18,7 @@ ZSH_CUSTOM="$HOME/.shell/zsh/omz-custom"
 ZSH_THEME="winstont"
 zstyle ':omz:update' mode disabled  # update by hand with: omz update
 DISABLE_MAGIC_FUNCTIONS=true  # OMZ's bracketed-paste-magic corrupts pastes in vi-mode
+VI_MODE_DISABLE_CLIPBOARD=true  # else vi delete/change ops clobber the system clipboard
 plugins=(git vi-mode)
 
 [ -f "$ZSH/oh-my-zsh.sh" ] && source "$ZSH/oh-my-zsh.sh"
